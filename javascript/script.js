@@ -11,9 +11,16 @@ const IMG_IDS = ['icon-1', 'icon-2', 'icon-3', 'icon-4', 'icon-5', 'icon-6', 'ic
 
 var imagesOnGame = 12;
 
+var imagesOff = [];
+
 var anterior = "sem-anterior";
 var secondClick;
 
+function imageOff(i,j){
+    imagesOff.push(i);
+    imagesOff.push(j);
+
+}
 function clickHandler(){
      
         // Seu código a ser executado quando o elemento for clicado
@@ -41,12 +48,14 @@ function displayNoneID(element){
 }
 
 function winCheck(){
-     imagesOnGame--;
+    let elements = document.getElementsByTagName('img');
+    console.log(elements.length);
+    imagesOnGame--;
                 if(imagesOnGame<=0){
                     alert("você venceu");
                     resetGame();
                 }else{
-                    anterior= "sem-anterior";
+                    anterior= "sem-anterior";  
                 }
 }
 
@@ -66,12 +75,14 @@ function showEmoji(i){
 function teste(id) {
         let numId = id.slice(5);
         
-        if(anterior!= "sem-anterior") {
+        if((anterior != "sem-anterior") && id != anterior) {
             showEmoji(numId);
             let antNumId = anterior.slice(5);
             if((Math.abs(antNumId - numId) == 1)){
                 displayNoneID(id);           
                 displayNoneID(anterior);
+                console.log(id +'   ' + anterior);
+                            
                 winCheck();
                 anterior= "sem-anterior";  
             } else{
