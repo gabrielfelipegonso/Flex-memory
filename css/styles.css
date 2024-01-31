@@ -116,17 +116,17 @@ header{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 10vh;
+    gap: 1.5vh;
     background-color: rgb(93, 2, 121);
     
     
 }
 h1{
-    font-size: 11vw;
+    font-size: 7vw;
     color: antiquewhite;
 }
 .instructions{
-    font-size: 3vw;
+    font-size: 2vw;
     width: auto;
     margin: 0 5%;
     text-align: justify;
@@ -134,8 +134,8 @@ h1{
 }
 button{
     text-align: center;
-    width: 20vw;
-    height: 6vw;
+    width: 18vw;
+    height: 5vw;
     border-radius: 1.5vw ;
     cursor: pointer;
     color: black;
@@ -159,13 +159,13 @@ main{
     flex-shrink: 1;
     flex-grow: 1;
     flex-basis: 82%;
-        
+     
     background-color: rgb(10, 10, 10);
    
     
 }
 ul{
-    height: 100vh;
+    height: 100%;
     display: flex;
     flex-wrap: wrap;
 }
