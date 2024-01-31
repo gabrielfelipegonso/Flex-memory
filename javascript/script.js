@@ -9,7 +9,7 @@ const IMG_IDS = ['icon-1', 'icon-2', 'icon-3', 'icon-4', 'icon-5', 'icon-6', 'ic
 
 var imagesOnGame = 12;
 
-var anterior = -100;
+var anterior = "sem-anterior";
 var secondClick;
 
 function clickHandler(){
@@ -38,33 +38,47 @@ function displayNoneID(element){
     document.getElementById(element).style.display = "none";
 }
 
-
-
-function teste(id) {
-        let numId = id.slice(5);
-        if(anterior!=-100) {
-            if((Math.abs(anterior.slice(5) - numId) == 1)){
-                
-                displayNoneID(id);           
-                displayNoneID(anterior);
-                
-                imagesOnGame--;
+function winCheck(){
+     imagesOnGame--;
                 if(imagesOnGame<=0){
                     alert("você venceu");
                     resetGame();
                 }else{
                     anterior= -100;
                 }
-                
-            } else{
+}
 
-               anterior= -100;
+function resetImages(){
+    for(let i = 1; i<=24; i++){
+        let element = document.getElementById('img-' + i)
+        element.src = (element.className.toString());
+       
+    };
+}
+
+function showEmoji(i){
+    let element = document.getElementById('img-' + i)
+    element.src = (element.className.toString());
+}
+
+function teste(id) {
+        let numId = id.slice(5);
+        
+        if(anterior!= "sem-anterior") {
+            showEmoji(numId);
+            let antNumId = anterior.slice(5);
+            if((Math.abs(antNumId - numId) == 1)){
+                displayNoneID(id);           
+                displayNoneID(anterior);
+                winCheck();
+                anterior= "sem-anterior";  
+            } else{
+               anterior= "sem-anterior";
             }
         }else{
+            showEmoji(numId);
             anterior = id;
         }
-        
-
     }
 
 function startGame(){
@@ -93,6 +107,7 @@ function startGame(){
     opacity(1);
     reset.style.display = "inline";
     start.style.display = "none";
+    emojiDoubt();
     // emojiDoubt();
     }, 600);
 
@@ -116,7 +131,9 @@ function resetGame(){
     opacity(1);
     start.style.display = "inline";
     reset.style.display = "none";
+    resetImages();
 
     }, 600);
+
 
 }
