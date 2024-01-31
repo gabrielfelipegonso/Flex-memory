@@ -1,4 +1,4 @@
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 650px) {
     *,
 body{
     padding: 0;
@@ -176,6 +176,7 @@ li{
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 25%;
     
 }
 
