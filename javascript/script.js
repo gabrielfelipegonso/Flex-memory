@@ -44,7 +44,7 @@ function winCheck(){
                     alert("você venceu");
                     resetGame();
                 }else{
-                    anterior= -100;
+                    anterior= "sem-anterior";
                 }
 }
 
@@ -118,7 +118,7 @@ function startGame(){
 }
 
 function resetGame(){
-    anterior = -100;
+    anterior = "sem-anterior";
     imagesOnGame = 12;
     opacity(0);
     setTimeout(function() {
