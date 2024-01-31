@@ -108,6 +108,7 @@ ul{
     
 }
 header{
+    height: 50%;
     flex-shrink: 1;
     flex-grow: 1;
     flex-basis: calc(25% - 1vw);
@@ -155,6 +156,7 @@ button:hover{
     
 }
 main{
+    height: 50%;
     flex-shrink: 1;
     flex-grow: 1;
     flex-basis: calc(75% - 0.5vw);
