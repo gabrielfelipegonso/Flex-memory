@@ -34,14 +34,19 @@ function emojiDoubt(opac) {
 function changeOrder(img, order){
     img.style.order = order;
 }
+function displayNoneID(element){
+    document.getElementById(element).style.display = "none";
+}
+
+
 
 function teste(id) {
         let numId = id.slice(5);
         if(anterior!=-100) {
             if((Math.abs(anterior.slice(5) - numId) == 1)){
                 
-                document.getElementById(id).style.display = "none";
-                document.getElementById(anterior).style.display = "none";
+                displayNoneID(id);           
+                displayNoneID(anterior);
                 
                 imagesOnGame--;
                 if(imagesOnGame<=0){
