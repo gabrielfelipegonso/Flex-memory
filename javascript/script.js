@@ -10,7 +10,7 @@ var larguraDaTela = window.innerWidth;
 const IMG_IDS = ['icon-1', 'icon-2', 'icon-3', 'icon-4', 'icon-5', 'icon-6', 'icon-7', 'icon-8', 'icon-9', 'icon-10',  "icon-11", "icon-12", "icon-13", "icon-14", "icon-15", "icon-16", "icon-17", "icon-18", "icon-19",'icon-20', 'icon-21', 'icon-22', 'icon-23', 'icon-24'];
 
 var imagesOnGame = 12;
-var hide = false;
+
 var imagesOff = [];
 
 var anterior = "sem-anterior";
@@ -95,17 +95,21 @@ function teste(id) {
             showEmoji(numId);
             let antNumId = anterior.slice(5);
             if((Math.abs(antNumId - numId) == 1)){
-                displayNoneID(id);           
-                displayNoneID(anterior);
-                hide = true;
-                console.log(id +'   ' + anterior);
-                            
-                winCheck();
+                    
                 stopClick();
+                
+                
                 setTimeout(function() {
+                    displayNoneID(id);           
+                    displayNoneID("icon-" + antNumId);
+               
+                    console.log(id +'   ' + anterior);
+                            
+                    winCheck();
                         hideEmoji(numId, antNumId);
+                         anterior= "sem-anterior";
                                     }, 600);
-                anterior= "sem-anterior";
+               
                 
                   
             } else{
