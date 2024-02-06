@@ -23,8 +23,7 @@ function imageOff(i,j){
 }
 function clickHandler(){
      
-        // Seu código a ser executado quando o elemento for clicado
-        teste(this.id);
+       teste(this.id);
     
 }
 
@@ -43,22 +42,39 @@ function emojiDoubt(opac) {
 function changeOrder(img, order){
     img.style.order = order;
 }
-function displayNoneID(element){
-    document.getElementById(element).style.display = "none";
+function displayNoneID(el1, el2){
+    
+    // var id = parseInt(numId) % 2 == 0 ? parseInt(numId) - 1 : parseInt(numId);
+    // // var elementos = document.getElementsByClassName("emojis/emoji-" + id + ".png");
+
+    // // for (var i = 0; i < elementos.length; i++) {
+    // // elementos[i].style.display = "none";
+    // // }
+    // console.log(parseInt(id));
+    // var outro = parseInt(id) +1;
+    // console.log(parseInt(outro));
+    // document.getElementById("icon-" + parseInt(id)).style.display = "none";
+    //  document.getElementById("icon-" + parseInt(outro)).style.display = "none";
+    document.getElementById("icon-" + el1.id.slice(4)).style.display = "none";
+    document.getElementById("icon-" + el2.id.slice(4)).style.display = "none";
+   
+
+
 }
 function stopClick(){
         IMG_IDS.forEach(function(IMG_IDS) {
          document.getElementById(IMG_IDS).removeEventListener('click',clickHandler);
+          document.getElementById(IMG_IDS).style.cursor = "auto";
     });
 }
 function startClick(){
         IMG_IDS.forEach(function(IMG_IDS) {
          document.getElementById(IMG_IDS).addEventListener('click',clickHandler);
+         document.getElementById(IMG_IDS).style.cursor = "pointer";
     });
 }
 function winCheck(){
-    let elements = document.getElementsByTagName('img');
-    console.log(elements.length);
+   
     imagesOnGame--;
                 if(imagesOnGame<=0){
                     alert("você venceu");
@@ -94,16 +110,17 @@ function teste(id) {
         if((anterior != "sem-anterior") && id != anterior) {
             showEmoji(numId);
             let antNumId = anterior.slice(5);
-            if((Math.abs(antNumId - numId) == 1)){
+            let el1 = document.getElementById("img-" + antNumId);
+            let el2 = document.getElementById("img-" + numId);
+            console.log(el1 +"       " + el2);
+
+            if(el1.className == el2.className){
                     
                 stopClick();
                 
                 
                 setTimeout(function() {
-                    displayNoneID(id);           
-                    displayNoneID("icon-" + antNumId);
-               
-                    console.log(id +'   ' + anterior);
+                    displayNoneID(el1, el2);                       
                             
                     winCheck();
                         hideEmoji(numId, antNumId);
@@ -117,8 +134,9 @@ function teste(id) {
                 stopClick();
                 setTimeout(function() {
                             hideEmoji(numId, antNumId);
+                            anterior= "sem-anterior";
                                         }, 600);
-            anterior= "sem-anterior";
+           
             }
         }else{
             
@@ -139,7 +157,7 @@ function startGame(){
     });
 
     var elemento = document.querySelectorAll(".img-clicavel");
-    var imgclick = document.querySelectorAll("img");
+    
    elemento.forEach(function clickImage(elemento) {
     elemento.addEventListener("click", clickHandler);
 });
