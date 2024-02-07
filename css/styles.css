@@ -126,7 +126,7 @@ h1{
     color: antiquewhite;
 }
 .instructions{
-    font-size: 2vw;
+    font-size: 3vw;
     width: auto;
     margin: 0 5%;
     text-align: justify;
@@ -134,14 +134,14 @@ h1{
 }
 button{
     text-align: center;
-    width: 18vw;
-    height: 5vw;
+    width: 35vw;
+    height: 6vw;
     border-radius: 3vw ;
     cursor: pointer;
     color: black;
     background-color: whitesmoke;
     transition: 0.5s;
-    font-size: 3vw;
+    font-size: 4vw;
     transition: display 0.6s ease-in-out;
 }
 #reset{
